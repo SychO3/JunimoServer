@@ -21,6 +21,14 @@ services:
     environment:
       # Steam auth service URL (for runtime ticket requests)
       STEAM_AUTH_URL: "http://steam-auth:3001"
+      # Needed for first-time setup / invite code auth inside the server container.
+      # Keep both long and short names for image-version compatibility.
+      STEAM_USERNAME: "${STEAM_USERNAME:-}"
+      STEAM_PASSWORD: "${STEAM_PASSWORD:-}"
+      STEAM_REFRESH_TOKEN: "${STEAM_REFRESH_TOKEN:-}"
+      STEAM_GUARD_CODE: "${STEAM_GUARD_CODE:-}"
+      STEAM_USER: "${STEAM_USERNAME:-}"
+      STEAM_PASS: "${STEAM_PASSWORD:-}"
       # Server configuration
       VNC_PASSWORD: "${VNC_PASSWORD:-}"
       DISABLE_RENDERING: "${DISABLE_RENDERING:-true}"
